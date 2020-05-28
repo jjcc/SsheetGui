@@ -36,11 +36,21 @@
 
 </body>
 <script>
-var options = {
-    minDimensions:[10,10],
-    tableOverflow:true,
-}
 
-$('#spreadsheet').jexcel(options);
+$(document).ready(function() {
+
+    var myOptions;
+    $.ajax({
+        url: "/api/v1/resources/options",
+        success: function( res ){
+            myOptions = res;
+            console.log(res);
+            $('#spreadsheet').jexcel(myOptions);
+    }});
+
+
+    console.log("doc loaded");
+
+});
 </script>
 </html>
