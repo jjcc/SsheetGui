@@ -5,22 +5,15 @@ app.debug = True
 
 
 
-books = [
+cattles = [
     {'id': 0,
      'title': 'A Fire Upon the Deep',
-     'author': 'Vernor Vinge',
-     'first_sentence': 'The coldsleep itself was dreamless.',
-     'year_published': '1992'},
+     'location': 'Toronto',
+     'year': '1992'},
     {'id': 1,
      'title': 'The Ones Who Walk Away From Omelas',
-     'author': 'Ursula K. Le Guin',
-     'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
-     'published': '1973'},
-    {'id': 2,
-     'title': 'Dhalgren',
-     'author': 'Samuel R. Delany',
-     'first_sentence': 'to wound the autumnal city.',
-     'published': '1975'}
+     'location': 'Ottawa',
+     'year': '1973'},
 ]
 
 @app.route('/')
@@ -28,16 +21,21 @@ def hello_world():
     return render_template("index.html")
 
 
-@app.route('/api/v1/resources/books/all', methods=['GET'])
+@app.route('/api/v1/resources/cattles/all', methods=['GET'])
 def api_all():
-    return jsonify(books)
+    return jsonify(cattles)
 
 
 @app.route('/api/v1/resources/options', methods=['GET'])
 def api_options():
     options = {
-        "minDimensions": [12, 12],
+        "minDimensions": [3, 5],
         "tableOverflow": True,
+        "columns":[
+            { "title":"Model" },
+            { "title":"Price" },
+            { "title":"Weight"}
+        ]
     };
     return jsonify(options)
 
