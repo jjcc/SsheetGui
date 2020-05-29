@@ -29,12 +29,16 @@ def api_all():
 @app.route('/api/v1/resources/options', methods=['GET'])
 def api_options():
     options = {
-        "minDimensions": [3, 5],
+        "minDimensions": [7, 5],
         "tableOverflow": True,
         "columns":[
-            { "title":"Model" },
-            { "title":"Price" },
-            { "title":"Weight"}
+            { "title":"Detailed Geographic Information" ,"width":300},
+            { "title":"BC","width":100 },
+            { "title":"SK","width":100},
+            {"title": "MB","width":100},
+            {"title": "ON","width":100},
+            {"title": "QC","width":100},
+            {"title": "Atlantic","width":100}
         ]
     };
     return jsonify(options)
