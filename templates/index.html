@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 
-<title>Spread Sheet GUI</title>
+<title>Spread Sheet Web User Interface Prototype </title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script src="https://bossanova.uk/jexcel/v3/jexcel.js"></script>
@@ -21,31 +21,31 @@
            <input type="button" value="Action" onclick="$('#spreadsheet').jexcel('insertRow')" />
         </div>
         <div class="col-md-1">
-              <input type="button" value="Save this scenario" onclick="" />
+              <input type="button" value="Save this scenario" onclick="" disabled/>
         </div>
         <div class="col-md-1"></div>
     </div>
     <div class = "row">
         <div class="col-md-9"></div>
         <div class="col-md-1">
-           <input type="button" value="HD/CD Model" onclick="" />
+           <input type="button" disabled  value="HD/CD Model" onclick="" />
         </div>
         <div class="col-md-1">
-              <input type="button" value="Load a scenario" onclick="" />
+              <input type="button" id="load" value="Load a scenario" onclick="" />
         </div>
         <div class="col-md-1"></div>
     </div>
     <div class = "row">
         <div class="col-md-10"></div>
         <div class="col-md-1">
-              <input type="button" value="Save to a PDF" onclick="" />
+              <input type="button" value="Save to a PDF" onclick="" disabled/>
         </div>
         <div class="col-md-1"></div>
     </div>
   <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
-        <h2>Spread Sheet Gui Demo</h2>
+        <h2>Spread Sheet Web User Interface Prototype</h2>
       </div>
       <div class="col-md-2">
 
@@ -64,6 +64,7 @@
 
 </body>
 <script>
+var table;
 
 $(document).ready(function() {
 
@@ -73,11 +74,19 @@ $(document).ready(function() {
         success: function( res ){
             myOptions = res;
             console.log(res);
-            $('#spreadsheet').jexcel(myOptions);
+            table = $('#spreadsheet').jexcel(myOptions);
     }});
 
 
     console.log("doc loaded");
+
+    $("#load").click(function(e){
+        table.setData([[null,1.0,1.0,1.0,1.0,1.0,1.0,1.0],
+            [null,2.0,1.0,3.0,3.0,1.0,1.0,1.0]
+        ])
+
+    })
+
 
 });
 </script>
