@@ -1,3 +1,3 @@
 # Flask based app using spread sheet as GUI
 
-For simple proto typing
+For simple proto type
