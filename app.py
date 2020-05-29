@@ -16,6 +16,21 @@ cattles = [
      'year': '1973'},
 ]
 
+options = {
+    "minDimensions": [7, 5],
+    "tableOverflow": True,
+    "columns": [
+        {"title": "Detailed Geographic Information", "width": 300, "type": "text"},
+        {"title": "BC", "width": 100, "type": "numeric"},
+        {"title": "SK", "width": 100, "type": "numeric"},
+        {"title": "MB", "width": 100, "type": "numeric"},
+        {"title": "ON", "width": 100, "type": "numeric"},
+        {"title": "QC", "width": 100, "type": "numeric"},
+        {"title": "Atlantic", "width": 100, "type": "numeric"}
+    ]
+}
+
+
 @app.route('/')
 def hello_world():
     return render_template("index.html")
@@ -28,19 +43,7 @@ def api_all():
 
 @app.route('/api/v1/resources/options', methods=['GET'])
 def api_options():
-    options = {
-        "minDimensions": [7, 5],
-        "tableOverflow": True,
-        "columns":[
-            { "title":"Detailed Geographic Information" ,"width":300},
-            { "title":"BC","width":100 },
-            { "title":"SK","width":100},
-            {"title": "MB","width":100},
-            {"title": "ON","width":100},
-            {"title": "QC","width":100},
-            {"title": "Atlantic","width":100}
-        ]
-    };
+
     return jsonify(options)
 
 
