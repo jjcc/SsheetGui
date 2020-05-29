@@ -18,7 +18,7 @@
     <div class = "row">
         <div class="col-md-9"></div>
         <div class="col-md-1">
-           <input type="button" value="Action" onclick="$('#spreadsheet').jexcel('insertRow')" />
+           <input type="button" id="testButton" value="Test Buton" />
         </div>
         <div class="col-md-1">
               <input type="button" value="Save this scenario" onclick="" disabled/>
@@ -85,7 +85,14 @@ $(document).ready(function() {
             [null,2.0,1.0,3.0,3.0,1.0,1.0,1.0]
         ])
 
-    })
+    });
+
+    $("#testButton").click(function(e){
+        res = table.getData();
+        console.log("get data:");
+        console.log(res);
+    }
+    );
 
 
 });
